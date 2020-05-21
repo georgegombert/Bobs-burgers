@@ -14,7 +14,7 @@ let orm = {
     });
   },
   updateOne: (table, burgerId, eatStatus, cb) => {
-    connection.query("UPDATE ?? SET devoured = ?? WHERE id = ? ", [table, eatStatus, burgerId], (err, result) =>{
+    connection.query("UPDATE ?? SET devoured = ? WHERE id = ? ", [table, eatStatus, burgerId], (err, result) =>{
       if (err) throw err;
       cb(result);
     });
