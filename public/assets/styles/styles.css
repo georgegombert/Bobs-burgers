@@ -1,0 +1,13 @@
+body{
+    background-image: url(../../img/background.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    position: relative;
+}
+
+.burger img{
+    height: 4rem;
+    position: absolute;
+    left:50%;
+    top: 55vh;
+}
