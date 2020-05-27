@@ -5,14 +5,20 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   burger.selectAll((result) =>{
-    res.send(result);
+    const resObj = {
+      burgers: result
+    }
+    console.log(resObj);
+    console.log(result);
+    res.render("index", resObj);
   });
 });
 
 router.post("/api/burgers", (req, res) => {
-  burger.newBurger('static new burger', (result) =>{
-    res.send(JSON.stringify(result));
+  burger.newBurger("test post burger", result =>{
+    console.log(result);
   });
+  res.status(200).end();
 });
 
 
