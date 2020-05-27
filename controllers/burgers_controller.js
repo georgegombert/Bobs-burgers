@@ -14,16 +14,13 @@ router.get("/", (req, res) => {
 
 router.get("/api/burgers", (req, res) => {
   burger.selectAll((result) =>{
-    console.log(result);
     res.send(result);
   });
 });
 
 router.get("/api/burgers/:id", (req, res) => {
   burger.selectAll((result) =>{
-    const burgerSelect = result.filter( burger => {
-      return parseInt(req.params.id)=== burger.id;
-    });
+    const burgerSelect = result.filter( burger => parseInt(req.params.id)=== burger.id );
     res.send(burgerSelect);
   });
 });
@@ -41,8 +38,6 @@ router.put("/api/burgers/:id", (req, res) => {
   })
   res.status(200).end();
 });
-
-
 
 
 module.exports = router;
