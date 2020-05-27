@@ -8,16 +8,37 @@ router.get("/", (req, res) => {
     const resObj = {
       burgers: result
     }
-    console.log(resObj);
-    console.log(result);
     res.render("index", resObj);
   });
 });
 
-router.post("/api/burgers", (req, res) => {
-  burger.newBurger("test post burger", result =>{
+router.get("/api/burgers", (req, res) => {
+  burger.selectAll((result) =>{
     console.log(result);
+    res.send(result);
   });
+});
+
+router.get("/api/burgers/:id", (req, res) => {
+  burger.selectAll((result) =>{
+    const burgerSelect = result.filter( burger => {
+      return parseInt(req.params.id)=== burger.id;
+    });
+    res.send(burgerSelect);
+  });
+});
+
+router.post("/api/burgers", (req, res) => {
+  burger.newBurger(req.body.name, result =>{
+    console.log("success");
+  });
+  res.status(200).end();
+});
+
+router.put("/api/burgers/:id", (req, res) => {
+  burger.eatBurger(parseInt(req.params.id), () => {
+    console.log("success");
+  })
   res.status(200).end();
 });
 

@@ -1,21 +1,30 @@
 $(document).ready(() => {
   
-  function newBurger() {
-    console.log("clicked");
+  $("#newBurger").click(() => {
     event.preventDefault();
     
+    const burgerName = {
+      name: $("#burgerName").val().trim()
+    };
+
     $.ajax({
       url: "/api/burgers",
-      type: "POST"
+      type: "POST",
+      data: burgerName
     })
     .then(() => {
-      console.log ("worked");
       location.reload();
     });
-  };
+  });
   
   $("#burgerList").click((event) => {
-    console.log(event.target.dataset.id);
+    const burgerId = event.target.dataset.id;
+
+    $.ajax({
+      url: `api/burgers/${burgerId}`,
+      type: "PUT"
+    })
+    .then(() => location.reload());
   });
 
 }); // end doc.ready
