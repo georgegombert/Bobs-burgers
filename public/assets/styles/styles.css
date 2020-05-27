@@ -1,8 +1,9 @@
 body{
-    background-image: url(../../img/background.png);
+    background-color: antiquewhite;
+    /* background-image: url(../../img/background.png);
     background-repeat: no-repeat;
     background-size: 100% 100vh;
-    position: relative;
+    position: relative; */
 }
 
 /* .burger img{

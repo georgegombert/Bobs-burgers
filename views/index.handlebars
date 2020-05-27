@@ -1,8 +1,8 @@
 <h1>WORKING HANDLEBARS</h1>
 
 
-<ul>
+<ul id="burgerList">
   {{#each burgers}}
-    <h1>{{burger_name}}</h1>
+    <h1 data-id="{{id}}">{{burger_name}}</h1>
   {{/each}}
 </ul>
