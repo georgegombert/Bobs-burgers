@@ -12,9 +12,7 @@ $(document).ready(() => {
       type: "POST",
       data: burgerName
     })
-    .then(() => {
-      location.reload();
-    });
+    .then(() => location.reload());
   });
   
   $("#burgerList").click((event) => {
@@ -26,5 +24,16 @@ $(document).ready(() => {
     })
     .then(() => location.reload());
   });
+
+  $(".tina").mouseover(() => {
+    $(".tina").attr("src", "img/tina_talk.png")
+  });
+  
+  $(".tina").mouseleave(() => {
+    $(".tina").attr("src", "img/tina.png")
+  });
+  $(".tina").click(() => {
+    $("#order-modal").removeClass("hidden");
+  })
 
 }); // end doc.ready

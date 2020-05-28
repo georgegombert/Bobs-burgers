@@ -1,7 +1,16 @@
-<h1>WORKING HANDLEBARS</h1>
+<img src="img/tina.png" alt="Tina Belcher" class="tina" title="Order here">
+
+<div class="modal hidden" id="order-modal">
+  <div class="container">
+    <img src="img/order-modal.png" alt="menu" class="modal-order">
+    <input type="text" id="burgerName" placeholder="BURGER NAME HERE">
+    <button id="newBurger">ORDER</button>
+  </div>
+</div>
 
 
-<ul id="burgerList">
+
+{{!-- <ul id="burgerList">
   {{#each burgers}}
     {{#if devoured}}
     {{else}}
@@ -19,5 +28,5 @@
       <h1 data-id="{{id}}">{{burger_name}}</h1>
     {{/if}}
   {{/each}}
-</ul>
+</ul> --}}
 

@@ -1,10 +1,15 @@
-body{
-    background-color: rgb(107, 190, 238)
-    
-    /* background-image: url(../../img/background.png);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pangolin', sans-serif;
+}
+
+body{    
+    background-image: url(/img/background.png);
     background-repeat: no-repeat;
-    background-size: 100% 100vh;
-    position: relative; */
+    background-size: 1366px 768px;
+    position: relative;
 }
 
 /* .burger img{
@@ -13,3 +18,81 @@ body{
     left:50%;
     top: 55vh;
 } */
+
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.container{
+    width: 510px;
+    height: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-order{
+    position: relative;
+}
+
+.tina{
+    position: absolute;
+    height: 15rem;
+    top: 235px;
+    left: 275px;
+    z-index: 1;
+}
+
+.tina:hover{
+    cursor: pointer;
+}
+
+#burgerName{
+    font-size: 1.2rem;
+    color: rgb(37, 92, 160);
+    font-weight: bolder;
+    border: solid black 1px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    position: absolute;
+    padding: .19rem;
+    width: 15rem;
+    left: 18.5%;
+    bottom: 40px;
+}
+
+#burgerName::-webkit-input-placeholder {
+    color: rgb(73, 126, 190);
+}
+
+#burgerName::-moz-placeholder {
+    color: rgb(73, 126, 190);
+}
+
+#newBurger{
+    color: rgb(219, 219, 224);
+    font-weight: bold;
+    position: absolute;
+    padding: .5rem;
+    border: solid black 1px;
+    border-radius: 3px;
+    left: 73%;
+    bottom: 40px;
+    background-color: rgb(118, 136, 159);
+    z-index: 80;
+}
+
+#newBurger:hover{
+    color: white;
+    background-color: rgb(78, 96, 121);
+}
+
+.hidden{
+    display: none;
+    pointer-events: none;
+}
