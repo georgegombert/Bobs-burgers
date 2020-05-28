@@ -36,6 +36,13 @@ body{
     transform: translate(-50%, -50%);
 }
 
+.container ul{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: rgb(37, 92, 160);
+}
+
 .modal-order{
     position: relative;
 }
