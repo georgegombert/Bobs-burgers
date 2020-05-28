@@ -12,12 +12,36 @@ body{
     position: relative;
 }
 
-/* .burger img{
-    height: 4rem;
+.burger{
+    height: 5.5rem;
     position: absolute;
-    left:50%;
-    top: 55vh;
-} */
+    z-index: 2;
+}
+
+.burger1{
+    top: 418px;
+    left: 53px;
+}
+
+.burger2{
+    top: 418px;
+    left: 263px;
+}
+
+.burger3{
+    top: 418px;
+    left: 465px;
+}
+
+.burger4{
+    top: 418px;
+    left: 668px;
+}
+
+.burger5{
+    top: 418px;
+    left: 878px;
+}
 
 .modal{
     width: 100vw;
