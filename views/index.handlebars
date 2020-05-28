@@ -3,6 +3,21 @@
 
 <ul id="burgerList">
   {{#each burgers}}
-    <h1 data-id="{{id}}">{{burger_name}}</h1>
+    {{#if devoured}}
+    {{else}}
+      <h1 data-id="{{id}}">{{burger_name}}</h1>
+    {{/if}}
   {{/each}}
 </ul>
+
+<input type="text" id="burgerName">
+<button id="newBurger">ADD BURGER</button>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      <h1 data-id="{{id}}">{{burger_name}}</h1>
+    {{/if}}
+  {{/each}}
+</ul>
+
