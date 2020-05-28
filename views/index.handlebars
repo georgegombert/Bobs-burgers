@@ -1,4 +1,5 @@
 <img src="img/tina.png" alt="Tina Belcher" class="tina" title="Order here">
+<img src="img/register.png" alt="Cash Register" class="register">
 
 <div class="modal hidden" id="order-modal">
   <div class="container">
@@ -8,6 +9,18 @@
   </div>
 </div>
 
+<div class="modal hidden" id="eaten-modal">
+  <div class="container">
+    <img src="img/order-modal.png" alt="menu" class="modal-order">
+    <ul>
+      {{#each burgers}}
+        {{#if devoured}}
+          <h1 data-id="{{id}}">{{burger_name}}</h1>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
 
 
 {{!-- <ul id="burgerList">

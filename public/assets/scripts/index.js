@@ -36,4 +36,16 @@ $(document).ready(() => {
     $("#order-modal").removeClass("hidden");
   })
 
+  $(".register").mouseover(() => {
+    $(".register").attr("src", "img/register-active.png")
+  });
+  
+  $(".register").mouseleave(() => {
+    $(".register").attr("src", "img/register.png")
+  });
+
+  $(".register").click(() => {
+    $("#eaten-modal").removeClass("hidden");
+  })
+
 }); // end doc.ready

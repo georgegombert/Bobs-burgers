@@ -52,6 +52,13 @@ body{
     cursor: pointer;
 }
 
+.register{
+    position: absolute;
+    top: 332px;
+    left: 721px;
+    height: 8rem;
+}
+
 #burgerName{
     font-size: 1.2rem;
     color: rgb(37, 92, 160);
