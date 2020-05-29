@@ -1,4 +1,6 @@
 $(document).ready(() => {
+
+  let activeBurgers = [];
   // close modal functionality
   $(document).click((event) => {
     console.log(event.target.id);
@@ -21,7 +23,17 @@ $(document).ready(() => {
       type: "POST",
       data: burgerName
     })
-    .then(() => location.reload());
+    .then(() => {
+      $.ajax({
+        url: `api/burgers`,
+        type: "get"
+      })
+      .then((result) => {
+        // $(`img[data-position =1]`).attr("data-burgerid", result[result.length-1].id);
+        activeBurgers.push(result[result.length-1].id);
+      });
+    });
+    location.reload();
   });
   
   $("#burgerList").click((event) => {
