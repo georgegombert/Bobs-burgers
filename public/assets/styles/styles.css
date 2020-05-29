@@ -49,6 +49,7 @@ body{
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 5;
+    overflow: hidden;
 }
 
 .container{
@@ -69,6 +70,15 @@ body{
 
 .modal-order{
     position: relative;
+}
+
+.bob{
+    position: absolute;
+    height: 25rem;
+    bottom: -45px;
+    transform: rotate(-45deg);
+    right: 0px;
+    z-index: 6;
 }
 
 .tina{
