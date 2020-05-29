@@ -77,9 +77,9 @@ $(document).ready(() => {
   };
 
   $(document).mouseover((event) =>{
-    const burgerId = event.target.dataset.burgerid;
+    const burgerPosition = event.target.dataset.position;
 
-    switch(burgerId){
+    switch(burgerPosition){
       case "1":
         displayBurgerName(1);
         break;
@@ -101,10 +101,19 @@ $(document).ready(() => {
   });
 
   $(document).click((event) =>{
-    const burgerId = event.target.dataset.burgerid;
-    $(`img[data-burgerid =${burgerId}]`).addClass("hidden");
+    const burgerPosition = event.target.dataset.position;
+    $(`img[data-position =${burgerPosition}]`).addClass("hidden");
     closeBurgerDisplay();
   });
+
+  function eatBurger(burgerId) {
+    $.ajax({
+      url: `api/burgers/${burgerId}`,
+      type: "PUT"
+    })
+    .then(() => location.reload());
+  };
+
   // -----------------------------------------------------------------------------------------------------------------------
 
 }); // end doc.ready
