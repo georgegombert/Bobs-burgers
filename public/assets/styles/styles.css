@@ -90,6 +90,10 @@ body{
     height: 8rem;
 }
 
+.register:hover{
+    cursor: pointer;
+}
+
 #burgerName{
     font-size: 1.2rem;
     color: rgb(37, 92, 160);
