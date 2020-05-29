@@ -53,11 +53,13 @@ body{
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 75px;
     width: 125px;
     overflow: scroll;
     transform: translate(40%, -80%);
     transform-origin: bottom left;
+    z-index: 5;
 }
 
 .modal{
@@ -80,9 +82,16 @@ body{
 
 .container ul{
     position: absolute;
-    top: 50px;
-    left: 50px;
     color: rgb(37, 92, 160);
+}
+
+.list-container{
+    width: 510px;
+    height: 280px;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    overflow: scroll;
 }
 
 .modal-order{

@@ -6,8 +6,15 @@
 <img src="img/generic-burger.png" alt="Burger" class="burger burger4">
 <img src="img/generic-burger.png" alt="Burger" class="burger burger5">
 
-<div class="burger-display burger1">
-  <h4>Baby you can chive my car</h4>
+<div class="burger-display burger2">
+  <ul id="burgerList">
+    {{#each burgers}}
+      {{#if devoured}}
+      {{else}}
+        <h4 data-id="{{id}}">{{burger_name}}</h4>
+      {{/if}}
+    {{/each}}
+  </ul>
 </div>
 
 <div class="modal hidden" id="welcome">
@@ -25,13 +32,15 @@
 <div class="modal hidden" id="eaten-modal">
   <div class="container">
     <img src="img/eaten-modal.png" alt="menu" class="modal-order">
-    <ul>
-      {{#each burgers}}
-        {{#if devoured}}
-          <h1 data-id="{{id}}">{{burger_name}}</h1>
-        {{/if}}
-      {{/each}}
-    </ul>
+    <div class="list-container">
+      <ul>
+        {{#each burgers}}
+          {{#if devoured}}
+            <h2 data-id="{{id}}">{{burger_name}}</h2>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </div>
 
