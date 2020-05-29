@@ -1,12 +1,12 @@
 <img src="img/tina.png" alt="Tina Belcher" class="tina" title="Order here">
 <img src="img/register.png" alt="Cash Register" class="register">
-<img src="img/generic-burger.png" alt="Burger" class="burger burger1">
-<img src="img/generic-burger.png" alt="Burger" class="burger burger2">
-<img src="img/generic-burger.png" alt="Burger" class="burger burger3">
-<img src="img/generic-burger.png" alt="Burger" class="burger burger4">
-<img src="img/generic-burger.png" alt="Burger" class="burger burger5">
+<img src="img/generic-burger.png" alt="Burger" class="burger burger1" data-burgerid="1">
+<img src="img/generic-burger.png" alt="Burger" class="burger burger2" data-burgerid="2">
+<img src="img/generic-burger.png" alt="Burger" class="burger burger3" data-burgerid="3">
+<img src="img/generic-burger.png" alt="Burger" class="burger burger4" data-burgerid="4">
+<img src="img/generic-burger.png" alt="Burger" class="burger burger5" data-burgerid="5">
 
-<div class="burger-display burger2">
+<div class="burger-display hidden" id="burgerDisplay">
   <ul id="burgerList">
     {{#each burgers}}
       {{#if devoured}}

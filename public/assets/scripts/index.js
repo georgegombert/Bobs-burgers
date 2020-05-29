@@ -63,5 +63,42 @@ $(document).ready(() => {
     $("#eaten-modal").removeClass("hidden");
   });
   // -----------------------------------------------------------------------------------------------------------------------
+  
+  // Burger display section
+  // -----------------------------------------------------------------------------------------------------------------------
+  function displayBurgerName(burgerId) {
+    $("#burgerDisplay").addClass(`burger${burgerId}`);
+    $("#burgerDisplay").removeClass(`hidden`);
+  };
 
+  function closeBurgerDisplay() {
+    $("#burgerDisplay").removeClass();
+    $("#burgerDisplay").addClass("hidden burger-display");
+  };
+
+  $(document).mouseover((event) =>{
+    console.log(parseInt(event.target.dataset.burgerid))
+    const burgerId = event.target.dataset.burgerid;
+
+    switch(burgerId){
+      case "1":
+        displayBurgerName(1);
+        break;
+      case "2":
+        displayBurgerName(2);
+        break;
+      case "3":
+        displayBurgerName(3);
+        break;
+      case "4":
+        displayBurgerName(4);
+        break;
+      case "5":
+        displayBurgerName(5);
+        break;
+      default:
+        closeBurgerDisplay();
+    };
+  });
+  // -----------------------------------------------------------------------------------------------------------------------
 }); // end doc.ready
