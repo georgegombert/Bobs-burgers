@@ -77,7 +77,6 @@ $(document).ready(() => {
   };
 
   $(document).mouseover((event) =>{
-    console.log(parseInt(event.target.dataset.burgerid))
     const burgerId = event.target.dataset.burgerid;
 
     switch(burgerId){
@@ -100,5 +99,12 @@ $(document).ready(() => {
         closeBurgerDisplay();
     };
   });
+
+  $(document).click((event) =>{
+    const burgerId = event.target.dataset.burgerid;
+    $(`img[data-burgerid =${burgerId}]`).addClass("hidden");
+    closeBurgerDisplay();
+  });
   // -----------------------------------------------------------------------------------------------------------------------
+
 }); // end doc.ready
