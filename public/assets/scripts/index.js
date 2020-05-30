@@ -1,6 +1,6 @@
+let activeBurgers = [];
 $(document).ready(() => {
 
-  let activeBurgers = [];
   // close modal functionality
   $(document).click((event) => {
     console.log(event.target.id);
@@ -11,29 +11,31 @@ $(document).ready(() => {
     }
   });
   
-  $("#newBurger").click(() => {
+  $("#newBurger").click(async function() {
     event.preventDefault();
     
     const burgerName = {
       name: $("#burgerName").val().trim()
     };
-
-    $.ajax({
+    console.log("hit 1");
+    await $.ajax({
       url: "/api/burgers",
       type: "POST",
       data: burgerName
     })
-    .then(() => {
-      $.ajax({
-        url: `api/burgers`,
-        type: "get"
-      })
-      .then((result) => {
-        // $(`img[data-position =1]`).attr("data-burgerid", result[result.length-1].id);
-        activeBurgers.push(result[result.length-1].id);
-      });
+    console.log("hit 2");
+    const result = await $.ajax({
+      url: `api/burgers`,
+      type: "get"
     });
+    console.log("hit 3");
+    // $(`img[data-position =1]`).attr("data-burgerid", result[result.length-1].id);
+    localStorage.setItem("burgerId", JSON.stringify(result[result.length-1]));
+    activeBurgers.push(result[result.length-1]);
+    console.log(activeBurgers);
+    console.log("hit 4");
     location.reload();
+    console.log("hit 5");
   });
   
   $("#burgerList").click((event) => {
@@ -72,6 +74,7 @@ $(document).ready(() => {
   });
 
   $(".register").click(() => {
+    console.log(activeBurgers);
     $("#eaten-modal").removeClass("hidden");
   });
   // -----------------------------------------------------------------------------------------------------------------------
