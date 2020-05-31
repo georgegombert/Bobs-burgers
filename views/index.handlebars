@@ -6,16 +6,7 @@
 <img src="img/generic-burger.png" alt="Burger" class="burger burger4" data-position="4">
 <img src="img/generic-burger.png" alt="Burger" class="burger burger5" data-position="5">
 
-<div class="burger-display hidden" id="burgerDisplay">
-  <ul id="burgerList">
-    {{#each burgers}}
-      {{#if devoured}}
-      {{else}}
-        <h4 data-id="{{id}}">{{burger_name}}</h4>
-      {{/if}}
-    {{/each}}
-  </ul>
-</div>
+<div class="burger-display hidden" id="burgerDisplay"></div>
 
 <div class="modal hidden" id="welcome">
   <img src="img/bob.png" alt="Bob" class="bob">

@@ -1,7 +1,32 @@
 let activeBurgers ;
 
-$(document).ready(() => {
+async function createNewBurger() {
+  const burgerName = {
+    name: $("#burgerName").val().trim()
+  };
+  await $.ajax({
+    url: "/api/burgers",
+    type: "POST",
+    data: burgerName
+  });
 
+  const result = await $.ajax({
+    url: `api/burgers`,
+    type: "get"
+  });
+  location.reload();
+};
+
+async function getActiveBurgers() {
+  activeBurgers = await $.ajax({
+    url:"/api/active-burgers",
+    type: "GET"
+  });
+  console.log(activeBurgers);
+};
+
+$(document).ready(() => {
+  getActiveBurgers();
   // close modal functionality
   $(document).click((event) => {
     console.log(event.target.id);
@@ -61,9 +86,10 @@ $(document).ready(() => {
   
   // Burger display section
   // -----------------------------------------------------------------------------------------------------------------------
-  function displayBurgerName(burgerId) {
-    $("#burgerDisplay").addClass(`burger${burgerId}`);
+  function displayBurgerName(burgerPosition) {
+    $("#burgerDisplay").addClass(`burger${burgerPosition}`);
     $("#burgerDisplay").removeClass(`hidden`);
+    $("#burgerDisplay").text(activeBurgers[burgerPosition-1].burger_name);
   };
 
   function closeBurgerDisplay() {
@@ -112,33 +138,6 @@ $(document).ready(() => {
   // -----------------------------------------------------------------------------------------------------------------------
 
 }); // end doc.ready
-
-async function getActiveBurgers() {
-  activeBurgers = await $.ajax({
-    url:"/api/active-burgers",
-    type: "GET"
-  });
-  console.log(activeBurgers);
-};
-
-async function createNewBurger() {
-  const burgerName = {
-    name: $("#burgerName").val().trim()
-  };
-  await $.ajax({
-    url: "/api/burgers",
-    type: "POST",
-    data: burgerName
-  });
-
-  const result = await $.ajax({
-    url: `api/burgers`,
-    type: "get"
-  });
-  location.reload();
-};
-
-
 
 
 
