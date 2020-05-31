@@ -1,4 +1,4 @@
-let activeBurgers = [];
+let activeBurgers ;
 
 $(document).ready(() => {
 
@@ -14,29 +14,8 @@ $(document).ready(() => {
   
   $("#newBurger").click(async function() {
     event.preventDefault();
-    
-    const burgerName = {
-      name: $("#burgerName").val().trim()
-    };
-    console.log("hit 1");
-    await $.ajax({
-      url: "/api/burgers",
-      type: "POST",
-      data: burgerName
-    })
-    console.log("hit 2");
-    const result = await $.ajax({
-      url: `api/burgers`,
-      type: "get"
-    });
-    console.log("hit 3");
-    // $(`img[data-position =1]`).attr("data-burgerid", result[result.length-1].id);
-    localStorage.setItem("burgerId", JSON.stringify(result[result.length-1]));
-    activeBurgers.push(result[result.length-1]);
-    console.log(activeBurgers);
-    console.log("hit 4");
-    location.reload();
-    console.log("hit 5");
+    await createNewBurger();
+    getActiveBurgers();
   });
   
   $("#burgerList").click((event) => {
@@ -135,11 +114,37 @@ $(document).ready(() => {
 }); // end doc.ready
 
 async function getActiveBurgers() {
-  const result = await $.ajax({
+  activeBurgers = await $.ajax({
     url:"/api/active-burgers",
     type: "GET"
   });
-  console.log(result);
+  console.log(activeBurgers);
+};
+
+async function createNewBurger() {
+  const burgerName = {
+    name: $("#burgerName").val().trim()
+  };
+  await $.ajax({
+    url: "/api/burgers",
+    type: "POST",
+    data: burgerName
+  });
+
+  const result = await $.ajax({
+    url: `api/burgers`,
+    type: "get"
+  });
+  location.reload();
+};
+
+
+
+
+
+async function test() {
+  await getActiveBurgers();
+  createNewBurger();
 }
 
-getActiveBurgers();
+// test();
