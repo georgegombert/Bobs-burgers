@@ -1,20 +1,24 @@
 let activeBurgers ;
 
 async function createNewBurger() {
-  const burgerName = {
-    name: $("#burgerName").val().trim()
+  if(activeBurgers.length >= 5){
+    alert("too many burgers. Please eat one");
+  } else {
+    const burgerName = {
+      name: $("#burgerName").val().trim()
+    };
+    await $.ajax({
+      url: "/api/burgers",
+      type: "POST",
+      data: burgerName
+    });
+    
+    const result = await $.ajax({
+      url: `api/burgers`,
+      type: "get"
+    });
+    location.reload();
   };
-  await $.ajax({
-    url: "/api/burgers",
-    type: "POST",
-    data: burgerName
-  });
-
-  const result = await $.ajax({
-    url: `api/burgers`,
-    type: "get"
-  });
-  location.reload();
 };
 
 async function getActiveBurgers() {
@@ -25,8 +29,14 @@ async function getActiveBurgers() {
   console.log(activeBurgers);
 };
 
+async function displayBurgers() {
+  await getActiveBurgers();
+  activeBurgers
+}
+
 $(document).ready(() => {
   getActiveBurgers();
+
   // close modal functionality
   $(document).click((event) => {
     console.log(event.target.id);
