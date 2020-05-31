@@ -2,7 +2,7 @@ let activeBurgers ;
 
 async function createNewBurger() {
   if(activeBurgers.length >= 5){
-    alert("too many burgers. Please eat one");
+    alert("too many burgers. Please eat one before continuing to order");
   } else {
     const burgerName = {
       name: $("#burgerName").val().trim()
@@ -26,16 +26,19 @@ async function getActiveBurgers() {
     url:"/api/active-burgers",
     type: "GET"
   });
-  console.log(activeBurgers);
+  // console.log(activeBurgers);
 };
 
 async function displayBurgers() {
   await getActiveBurgers();
-  activeBurgers
-}
+  for(index in activeBurgers){
+    console.log((parseInt(index)+1));
+    $(`img[data-position =${parseInt(index)+1}]`).removeClass("hidden");
+  };
+};
 
 $(document).ready(() => {
-  getActiveBurgers();
+  displayBurgers();
 
   // close modal functionality
   $(document).click((event) => {
@@ -152,8 +155,7 @@ $(document).ready(() => {
 
 
 async function test() {
-  await getActiveBurgers();
-  createNewBurger();
+  displayBurgers();
 }
 
-// test();
+test();
