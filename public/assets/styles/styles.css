@@ -55,7 +55,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 75px;
+    /* height: 75px; */
     width: 125px;
     overflow: scroll;
     transform: translate(40%, -80%);
@@ -111,6 +111,22 @@ body{
 .speech-bob{
     position: absolute;
     right: 280px;
+}
+
+.speech-tina{
+    position: absolute;
+    color: rgb(37, 92, 160);
+    left: 230px;
+    width: 250px;
+}
+
+.speech-tina img{
+    position: absolute;
+    transform: scale(-.5, .5) translateY(30px);
+}
+
+.speech-tina h3{
+    transform: translate(180px, 180px);
 }
 
 .welcome-text{

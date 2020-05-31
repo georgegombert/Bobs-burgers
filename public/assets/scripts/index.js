@@ -10,7 +10,13 @@ function displayWelcome() {
 
 async function createNewBurger() {
   if(activeBurgers.length >= 5){
-    alert("too many burgers. Please eat one before continuing to order");
+    $("#order-modal").addClass("hidden");
+    $(".speech-tina").removeClass("hidden");
+    $(".tina").attr("src", "img/tina_talk.png")
+    setTimeout(() => {
+      $(".speech-tina").addClass("hidden");
+      $(".tina").attr("src", "img/tina.png")
+    },4000);
   } else {
     const burgerName = {
       name: $("#burgerName").val().trim()
