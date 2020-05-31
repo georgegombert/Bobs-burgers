@@ -1,4 +1,5 @@
 let activeBurgers = [];
+
 $(document).ready(() => {
 
   // close modal functionality

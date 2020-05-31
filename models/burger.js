@@ -6,6 +6,11 @@ let burger = {
       cb(res);
     });
   }, 
+  selectActive: (cb) => {
+    orm.selectActive('burgers', (res) =>{
+      cb(res);
+    });
+  },
   newBurger: (burgerName, cb) => {
     orm.insertOne('burgers', 'burger_name', burgerName, (res) =>{
       cb(res);

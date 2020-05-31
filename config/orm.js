@@ -7,6 +7,12 @@ let orm = {
       cb(result);
     });
   },
+  selectActive: (table, cb) => {
+    connection.query("SELECT * FROM ?? WHERE devoured = 0", [table], (err, result) =>{
+      if (err) throw err;
+      cb(result);
+    });
+  },
   insertOne: (table, colName, burgerName, cb) => {
     connection.query("INSERT INTO ?? (??) VALUES (?);", [table, colName, burgerName], (err, result) =>{
       if (err) throw err;
