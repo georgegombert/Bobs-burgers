@@ -1,5 +1,13 @@
 let activeBurgers ;
 
+function displayWelcome() {
+  const visited = localStorage.getItem("visited");
+  if(!visited){
+    $("#welcome").removeClass("hidden");
+    localStorage.setItem("visited", "true");
+  };
+};
+
 async function createNewBurger() {
   if(activeBurgers.length >= 5){
     alert("too many burgers. Please eat one before continuing to order");
@@ -46,7 +54,9 @@ function eatBurger(burgerId) {
 };
 
 $(document).ready(() => {
+  displayWelcome();
   displayBurgers();
+
 
   // close modal functionality
   $(document).click((event) => {
@@ -157,7 +167,7 @@ $(document).ready(() => {
 
 
 async function test() {
-  displayBurgers();
+  displayWelcome();
 }
 
 // test();
