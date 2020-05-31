@@ -32,16 +32,12 @@ router.get("/api/burgers/:id", (req, res) => {
 });
 
 router.post("/api/burgers", (req, res) => {
-  burger.newBurger(req.body.name, result =>{
-    console.log("success");
-  });
+  burger.newBurger(req.body.name, () =>{});
   res.status(200).end();
 });
 
 router.put("/api/burgers/:id", (req, res) => {
-  burger.eatBurger(parseInt(req.params.id), () => {
-    console.log("success");
-  })
+  burger.eatBurger(parseInt(req.params.id), () => {});
   res.status(200).end();
 });
 
