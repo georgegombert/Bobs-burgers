@@ -1,3 +1,4 @@
+{{!-- background images for the homepage --}}
 <img src="img/tina.png" alt="Tina Belcher" class="tina" title="Order Here">
 <img src="img/register.png" alt="Cash Register" class="register" title="See All Burgers Sold">
 <img src="img/generic-burger.png" alt="Burger" class="burger burger1 hidden" data-position="1">
@@ -6,14 +7,16 @@
 <img src="img/gordon-burger.png" alt="Burger" class="burger burger4 hidden" data-position="4">
 <img src="img/olive-burger.png" alt="Burger" class="burger burger5 hidden" data-position="5">
 
-
+{{!-- Div displayed if too many burgers are ordered at the same time --}}
 <div class="speech-tina hidden">
 <img src="img/speech-bubble.png" alt="Speech Bubble">
 <h3>My dad need a break from the grill. Why don't you eat some of the burgers in front of you then he will make more.</h3>
 </div>
 
+{{!-- div that displays the name of each burger when hovered over --}}
 <div class="burger-display hidden" id="burgerDisplay"></div>
 
+{{!-- welcome modal that is displayed the first time someone comes to the site --}}
 <div class="modal hidden" id="welcome">
   <img src="img/bob.png" alt="Bob" class="bob">
   <img src="img/speech-bubble.png" alt="Speech Bubble" class="speech-bob">
@@ -30,6 +33,7 @@
   </div>
 </div>
 
+{{!-- order modal --}}
 <div class="modal hidden" id="order-modal">
   <div class="container">
     <img src="img/order-modal.png" alt="menu" class="modal-order">
@@ -38,6 +42,7 @@
   </div>
 </div>
 
+{{!-- eaten modal --}}
 <div class="modal hidden" id="eaten-modal">
   <div class="container">
     <img src="img/eaten-modal.png" alt="menu" class="modal-order">
