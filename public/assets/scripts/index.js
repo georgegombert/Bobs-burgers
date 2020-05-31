@@ -54,6 +54,8 @@ $(document).ready(() => {
       $("#order-modal").addClass("hidden");
     } else if (event.target.id === "eaten-modal"){
       $("#eaten-modal").addClass("hidden");
+    } else if (event.target.id === "welcome"){
+      $("#welcome").addClass("hidden");
     }
   });
   
