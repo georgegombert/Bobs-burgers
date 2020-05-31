@@ -37,12 +37,19 @@ async function displayBurgers() {
   };
 };
 
+function eatBurger(burgerId) {
+  $.ajax({
+    url: `api/burgers/${activeBurgers[burgerId-1].id}`,
+    type: "PUT"
+  })
+  .then(() => location.reload());
+};
+
 $(document).ready(() => {
   displayBurgers();
 
   // close modal functionality
   $(document).click((event) => {
-    console.log(event.target.id);
     if(event.target.id === "order-modal"){
       $("#order-modal").addClass("hidden");
     } else if (event.target.id === "eaten-modal"){
@@ -137,16 +144,9 @@ $(document).ready(() => {
   $(document).click((event) =>{
     const burgerPosition = event.target.dataset.position;
     $(`img[data-position =${burgerPosition}]`).addClass("hidden");
+    eatBurger(burgerPosition);
     closeBurgerDisplay();
   });
-
-  function eatBurger(burgerId) {
-    $.ajax({
-      url: `api/burgers/${burgerId}`,
-      type: "PUT"
-    })
-    .then(() => location.reload());
-  };
 
   // -----------------------------------------------------------------------------------------------------------------------
 
@@ -158,4 +158,4 @@ async function test() {
   displayBurgers();
 }
 
-test();
+// test();
