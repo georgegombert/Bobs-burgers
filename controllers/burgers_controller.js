@@ -14,13 +14,13 @@ router.get("/", (req, res) => {
 
 router.get("/api/burgers", (req, res) => {
   burger.selectAll((result) =>{
-    res.send(result);
+    res.json(result);
   });
 });
 
 router.get("/api/active-burgers", (req, res) => {
   burger.selectActive((result) =>{
-    res.send(result);
+    res.json(result);
   });
 });
 

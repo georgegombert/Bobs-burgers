@@ -133,3 +133,13 @@ $(document).ready(() => {
   // -----------------------------------------------------------------------------------------------------------------------
 
 }); // end doc.ready
+
+async function getActiveBurgers() {
+  const result = await $.ajax({
+    url:"/api/active-burgers",
+    type: "GET"
+  });
+  console.log(result);
+}
+
+getActiveBurgers();
